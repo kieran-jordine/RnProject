@@ -1,0 +1,8 @@
+node_modules
+ios
+android
+
+README.md
+
+# all html files
+**/*.html
