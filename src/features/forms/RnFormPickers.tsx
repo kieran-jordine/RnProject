@@ -4,7 +4,6 @@ import {
   Image,
   SafeAreaView,
   StatusBar,
-  StyleSheet,
   Text,
   useColorScheme,
   View,
@@ -17,6 +16,7 @@ import {
   launchCamera,
   launchImageLibrary,
 } from 'react-native-image-picker';
+import style from '../../utils/theme';
 
 function RnFormPickers(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -91,8 +91,8 @@ function RnFormPickers(): JSX.Element {
         backgroundColor={'blue'}
         showHideTransition={'slide'}
       />
-      <View style={styles.container}>
-        <Text style={styles.headlineText}>A form with some pickers</Text>
+      <View style={style.container}>
+        <Text style={style.headlineText}>A form with some pickers</Text>
         <Button onPress={() => setShow(true)} title="Select Country" />
         <CountryPicker
           show={show}
@@ -106,9 +106,9 @@ function RnFormPickers(): JSX.Element {
           onBackdropPress={() => setShow(false)}
         />
         <Text>{`Selected Country: ${countryCode}`}</Text>
-        <View style={styles.divider} />
+        <View style={style.divider} />
         <Text>Image Picker</Text>
-        <View style={styles.buttonRow}>
+        <View style={style.row}>
           <Button title="Camera" onPress={onCamera} />
           <Button title="Gallery" onPress={onGallery} />
         </View>
@@ -120,44 +120,5 @@ function RnFormPickers(): JSX.Element {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 8,
-  },
-  textInput: {
-    height: 40,
-    borderWidth: 1,
-    borderColor: 'grey',
-    borderRadius: 8,
-    paddingHorizontal: 20,
-    marginVertical: 8,
-  },
-  headlineText: {
-    textAlign: 'center',
-    fontSize: 18,
-    marginVertical: 8,
-  },
-  activityIndicator: {
-    marginVertical: 8,
-    display: 'none',
-  },
-  listHeaderFooter: {
-    backgroundColor: 'lightgrey',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 30,
-  },
-  divider: {
-    height: 1,
-    backgroundColor: 'lightgrey',
-    marginVertical: 8,
-  },
-  buttonRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '100%',
-  },
-});
 
 export default RnFormPickers;

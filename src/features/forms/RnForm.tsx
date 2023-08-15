@@ -6,7 +6,6 @@ import {
   RefreshControl,
   SafeAreaView,
   StatusBar,
-  StyleSheet,
   Switch,
   Text,
   TextInput,
@@ -14,6 +13,7 @@ import {
   View,
 } from 'react-native';
 import useRnForm from './RnFormLogic';
+import style from '../../utils/theme';
 
 function RnForm(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -44,10 +44,10 @@ function RnForm(): JSX.Element {
         backgroundColor={'blue'}
         showHideTransition={'slide'}
       />
-      <View style={styles.container}>
-        <Text style={styles.headlineText}>A form with some elements</Text>
+      <View style={style.container}>
+        <Text style={style.headlineText}>A form with some elements</Text>
         <TextInput
-          style={styles.textInput}
+          style={style.textInput}
           placeholder="Placeholder"
           onChangeText={textChange}
           onSubmitEditing={addToList}
@@ -58,9 +58,9 @@ function RnForm(): JSX.Element {
           keyExtractor={(item, index) => `${item}${index}`}
           ListEmptyComponent={<Text>Empty List</Text>}
           ListHeaderComponent={<Text>List Header</Text>}
-          ListHeaderComponentStyle={styles.listHeaderFooter}
+          ListHeaderComponentStyle={style.listHeaderFooter}
           ListFooterComponent={<Text>List Footer</Text>}
-          ListFooterComponentStyle={styles.listHeaderFooter}
+          ListFooterComponentStyle={style.listHeaderFooter}
           // onRefresh={doLoading}
           // refreshing={loading}
           refreshControl={
@@ -69,7 +69,7 @@ function RnForm(): JSX.Element {
         />
         <Switch value={state.booleanValue} onValueChange={switchChange} />
         <Text>{state.updatedAt}</Text>
-        <ActivityIndicator size="large" style={styles.activityIndicator} />
+        <ActivityIndicator size="large" style={style.activityIndicator} />
         <Button
           onPress={() => dispatch({type: 'one', payload: textValue.current})}
           title="Form Data"
@@ -79,34 +79,5 @@ function RnForm(): JSX.Element {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 8,
-  },
-  textInput: {
-    height: 40,
-    borderWidth: 1,
-    borderColor: 'grey',
-    borderRadius: 8,
-    paddingHorizontal: 20,
-    marginVertical: 8,
-  },
-  headlineText: {
-    textAlign: 'center',
-    fontSize: 18,
-    marginVertical: 8,
-  },
-  activityIndicator: {
-    marginVertical: 8,
-    display: 'none',
-  },
-  listHeaderFooter: {
-    backgroundColor: 'lightgrey',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 30,
-  },
-});
 
 export default RnForm;
