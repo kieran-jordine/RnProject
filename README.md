@@ -1,5 +1,9 @@
 A [**React Native**](https://reactnative.dev) project that showcases best practices, organization and process for a React Native project.
 
+## Command
+npx react-native@latest init ProjectName
+px react-native@X.XX.X init ProjectName --version X.XX.X
+
 ## Tips
 Open in XCode:
     xed ios
@@ -7,7 +11,6 @@ Open in XCode:
 ## Forms
 
 ## New Architecture
-
 ### activate
 ios: 
     bundle install && RCT_NEW_ARCH_ENABLED=1 bundle exec pod install => initial
@@ -20,7 +23,7 @@ android:
 ios:
    NSDocumentPickerUsageDescription
 
-### image picker
+### image picker (react-native-image-picker)
 ios:
    NSPhotoLibraryUsageDescription
    NSCameraUsageDescription
