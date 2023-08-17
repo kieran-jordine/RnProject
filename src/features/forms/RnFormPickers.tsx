@@ -97,7 +97,6 @@ function RnFormPickers(): JSX.Element {
         <CountryPicker
           show={show}
           pickerButtonOnPress={item => {
-            console.log(item.code);
             setCountryCode(`${item.code}, ${item.dial_code}, ${item.name.en}`);
             setShow(false);
           }}
