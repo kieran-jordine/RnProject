@@ -32,3 +32,20 @@ ios:
 ## State Management
 
 ## Networking
+RTK Query
+
+### Environment Configuration
+react-native-config
+https://github.com/luggit/react-native-config
+ios: pod install is necessary
+android:
+in android/app/build.gradle
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+does not cascade: variables have to be repeated in each file
+need to set the ENFILE=.env in the command
+
+react-native-dotenv
+https://github.com/goatandsheep/react-native-dotenv
+requires a '.babelrc' file
+module for typescript types
+cascade: from environment specific to general .env
