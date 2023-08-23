@@ -2,6 +2,7 @@ import React, {useRef, useState} from 'react';
 import {
   Button,
   SafeAreaView,
+  ScrollView,
   StatusBar,
   Text,
   TextInput,
@@ -18,11 +19,17 @@ import {
   useDeletePostMutation,
 } from './api-service';
 
-function RtkQuery(): JSX.Element {
+function RtkQuery({
+  route,
+  navigation,
+}: {
+  route: any;
+  navigation: any;
+}): JSX.Element {
   const allPosts = useGetPostsQuery();
 
   const postId = useRef('');
-  const [postID, setPostId] = useState(1);
+  const [postID, setPostId] = useState<number>(route.params.postId);
   const {data, error, isLoading} = useGetPostQuery(postID);
   function onGetPost() {
     setPostId(Number(postId.current));
@@ -56,7 +63,7 @@ function RtkQuery(): JSX.Element {
   return (
     <SafeAreaView>
       <StatusBar />
-      <View style={style.container}>
+      <ScrollView style={style.container}>
         <Text style={style.headlineText}>RTK Query</Text>
         <TextInput
           placeholder="Post Id"
@@ -105,7 +112,31 @@ function RtkQuery(): JSX.Element {
         {deletePostResult.data && (
           <Text>{`${deletePostResult.endpointName}, ${deletePostResult.requestId}, ${deletePostResult.isSuccess}`}</Text>
         )}
-      </View>
+        <Button onPress={() => navigation.goBack()} title="Back" />
+        <Button
+          onPress={() => navigation.setParams({postId: 79})}
+          title="Update Params"
+        />
+        <Button
+          onPress={() =>
+            navigation.navigate({
+              name: 'ReduxStart',
+              params: {postId: 79},
+              merge: true,
+            })
+          }
+          title="Send Back Info"
+        />
+        <Button
+          onPress={() =>
+            navigation.navigate('Profile', {
+              screen: 'Account',
+              params: {name: ''},
+            })
+          }
+          title="Params to nested navigators"
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 }

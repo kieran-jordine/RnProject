@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import {
   Button,
+  Platform,
   SafeAreaView,
   StatusBar,
   Text,
@@ -14,7 +15,7 @@ import {increment, decrement, byAmount} from './counter-slice';
 import {useSelector, useDispatch} from 'react-redux';
 import type {RootState} from '../../redux/store';
 
-function Redux(): JSX.Element {
+function ReduxStart({navigation}: {navigation: any}): JSX.Element {
   const dispatch = useDispatch();
   const count = useSelector((state: RootState) => state.counter.value);
   const entered = useRef('');
@@ -25,6 +26,12 @@ function Redux(): JSX.Element {
       dispatch(byAmount(value));
     }
   }
+
+  React.useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => headerRight(() => dispatch(increment())),
+    });
+  }, [dispatch, navigation]);
 
   return (
     <SafeAreaView>
@@ -45,9 +52,24 @@ function Redux(): JSX.Element {
           </View>
         </View>
         <View style={style.divider} />
+        <Button onPress={() => navigation.popToTop()} title="Home" />
+        <Button
+          onPress={() => navigation.navigate('RtkQuery', {postId: 3})}
+          title="RtkQuery"
+        />
       </View>
     </SafeAreaView>
   );
 }
 
-export default Redux;
+function headerRight(onPress: () => void): JSX.Element {
+  return (
+    <Button
+      onPress={onPress}
+      title="More"
+      color={Platform.OS === 'android' ? 'red' : '#fff'}
+    />
+  );
+}
+
+export default ReduxStart;

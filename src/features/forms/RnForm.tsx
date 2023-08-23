@@ -9,15 +9,13 @@ import {
   Switch,
   Text,
   TextInput,
-  useColorScheme,
   View,
 } from 'react-native';
 import useRnForm from './RnFormLogic';
 import style from '../../utils/theme';
+import {NavProp} from '../../navigation/NavProp';
 
-function RnForm(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
+function RnForm({navigation}: NavProp): JSX.Element {
   const {state, dispatch, textValue, loading, doLoading} = useRnForm();
 
   function switchChange(value: boolean) {
@@ -37,13 +35,7 @@ function RnForm(): JSX.Element {
 
   return (
     <SafeAreaView>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        hidden={false}
-        animated
-        backgroundColor={'blue'}
-        showHideTransition={'slide'}
-      />
+      <StatusBar barStyle={'light-content'} backgroundColor={'red'} />
       <View style={style.container}>
         <Text style={style.headlineText}>A form with some elements</Text>
         <TextInput
@@ -75,6 +67,14 @@ function RnForm(): JSX.Element {
           title="Form Data"
         />
         <Text>{state.textValue}</Text>
+        <Button
+          onPress={() => navigation.navigate('RnFormPickers')}
+          title="Form Pickers"
+        />
+        <Button
+          onPress={() => navigation.navigate('Settings')}
+          title="Settings"
+        />
       </View>
     </SafeAreaView>
   );

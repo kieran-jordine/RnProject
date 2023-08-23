@@ -32,10 +32,18 @@ const style = StyleSheet.create({
     backgroundColor: 'lightgrey',
     marginVertical: 8,
   },
+  flex: {
+    flex: 1,
+  },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '100%',
+  },
+  center: {
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

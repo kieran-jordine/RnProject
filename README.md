@@ -34,6 +34,9 @@ ios:
 ## Networking
 RTK Query
 
+## Navigation
+react-navigation
+
 ### Environment Configuration
 react-native-config
 https://github.com/luggit/react-native-config
@@ -49,3 +52,5 @@ https://github.com/goatandsheep/react-native-dotenv
 requires a '.babelrc' file
 module for typescript types
 cascade: from environment specific to general .env
+
+npm start -- --reset-cache

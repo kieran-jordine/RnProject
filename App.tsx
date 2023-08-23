@@ -1,14 +1,25 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {Provider} from 'react-redux';
+import {Provider as ReduxProvider} from 'react-redux';
+import {NavigationContainer} from '@react-navigation/native';
 
 import {store} from './src/redux/store';
-import ReduxStart from './src/features/forms/RnForm';
+
+import StackNavigation from './src/navigation/stack/StackNavigation';
+// import BottomTabNavigation from './src/navigation/tab/BottomTabNavigation';
+// import DrawerNavigation from './src/navigation/drawer/DrawerNavigation';
+// import TopTabNavigation from './src/navigation/top-tab/TopTabNavigation';
 
 function App(): JSX.Element {
   return (
-    <Provider store={store}>
-      <ReduxStart />
-    </Provider>
+    <ReduxProvider store={store}>
+      <NavigationContainer>
+        <StackNavigation />
+        {/* <BottomTabNavigation /> */}
+        {/* <DrawerNavigation /> */}
+        {/* <TopTabNavigation /> */}
+      </NavigationContainer>
+    </ReduxProvider>
   );
 }
 

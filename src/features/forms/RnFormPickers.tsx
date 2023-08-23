@@ -1,13 +1,5 @@
 import React, {useState} from 'react';
-import {
-  Button,
-  Image,
-  SafeAreaView,
-  StatusBar,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {Button, Image, SafeAreaView, StatusBar, Text, View} from 'react-native';
 import {CountryPicker} from 'react-native-country-codes-picker';
 import {
   CameraOptions,
@@ -18,9 +10,19 @@ import {
 } from 'react-native-image-picker';
 import style from '../../utils/theme';
 
-function RnFormPickers(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+// import {StackNavigationProp} from '@react-navigation/native-stack';
+// import {RootStackParamList} from '../../../App';
 
+// type ScreenNavigationProp = StackNavigationProp<
+//   RootStackParamList,
+//   'RnFormPickers'
+// >;
+
+// type Props = {
+//   navigation: ScreenNavigationProp;
+// };
+
+function RnFormPickers({navigation}: {navigation: any}): JSX.Element {
   const [show, setShow] = useState(false);
   const [countryCode, setCountryCode] = useState('');
 
@@ -85,7 +87,7 @@ function RnFormPickers(): JSX.Element {
   return (
     <SafeAreaView>
       <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        barStyle={'light-content'}
         hidden={false}
         animated
         backgroundColor={'blue'}
@@ -115,6 +117,10 @@ function RnFormPickers(): JSX.Element {
         {imageSource && (
           <Image source={{uri: imageSource, width: 200, height: 200}} />
         )}
+        <Button
+          onPress={() => navigation.push('ReduxStart')}
+          title="Redux Start"
+        />
       </View>
     </SafeAreaView>
   );
