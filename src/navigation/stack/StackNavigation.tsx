@@ -8,13 +8,14 @@ import RnFormPickers from '../../features/forms/RnFormPickers';
 import ReduxStart from '../../features/state_management/ReduxStart';
 import RtkQuery from '../../features/state_management/RtkQuery';
 import Settings from '../../features/user_management/Settings';
+import ReactNativePaper from '../../features/ui_library/ReactNativePaper';
 
 const Stack = createNativeStackNavigator();
 
 export default function StackNavigation() {
   return (
     <Stack.Navigator
-      initialRouteName="RnForm"
+      initialRouteName="RNP"
       screenOptions={{
         headerStyle: {
           backgroundColor: 'red',
@@ -22,6 +23,11 @@ export default function StackNavigation() {
         headerTintColor: '#fff',
         // headerShown: false,
       }}>
+      <Stack.Screen
+        name="RNP"
+        component={ReactNativePaper}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="RnForm"
         component={RnForm}
