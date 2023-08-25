@@ -14,9 +14,16 @@ import {store} from './src/redux/store';
 import {lightTheme, darkTheme} from './src/utils/paper-theme';
 
 import StackNavigation from './src/navigation/stack/StackNavigation';
+
 // import BottomTabNavigation from './src/navigation/tab/BottomTabNavigation';
+// import MaterialBottomTab from './src/navigation/react-native-paper/MaterialBottomTab';
+// import MaterialBottomTabNavigation from './src/navigation/react-native-paper/MaterialBottomTabNavigation';
+
 // import DrawerNavigation from './src/navigation/drawer/DrawerNavigation';
+// import RnpDrawer from './src/navigation/react-native-paper/RnpDrawer';
+
 // import TopTabNavigation from './src/navigation/top-tab/TopTabNavigation';
+// import TopTab from './src/navigation/top-tab/TopTab';
 
 function App(): JSX.Element {
   const scheme = useColorScheme();
@@ -32,8 +39,12 @@ function App(): JSX.Element {
         <NavigationContainer theme={navTheme}>
           <StackNavigation />
           {/* <BottomTabNavigation /> */}
+          {/* <MaterialBottomTab /> */}
+          {/* <MaterialBottomTabNavigation /> */}
           {/* <DrawerNavigation /> */}
+          {/* <RnpDrawer /> */}
           {/* <TopTabNavigation /> */}
+          {/* <TopTab /> */}
         </NavigationContainer>
       </PaperProvider>
     </ReduxProvider>

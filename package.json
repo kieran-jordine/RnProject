@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
+    "run-all": "npm run android && npm run ios",
     "start": "react-native start",
     "test": "jest"
   },
