@@ -15,7 +15,7 @@ const Stack = createNativeStackNavigator();
 export default function StackNavigation() {
   return (
     <Stack.Navigator
-      initialRouteName="RNP"
+      initialRouteName="RnForm"
       screenOptions={{
         headerStyle: {
           backgroundColor: 'red',

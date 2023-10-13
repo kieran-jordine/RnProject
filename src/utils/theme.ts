@@ -6,7 +6,7 @@ const style = StyleSheet.create({
   },
   textInput: {
     height: 40,
-    borderWidth: 1,
+    borderWidth: 0.6,
     borderColor: 'grey',
     borderRadius: 8,
     paddingHorizontal: 20,
@@ -17,10 +17,6 @@ const style = StyleSheet.create({
     fontSize: 18,
     marginVertical: 8,
   },
-  activityIndicator: {
-    marginVertical: 8,
-    display: 'none',
-  },
   listHeaderFooter: {
     backgroundColor: 'lightgrey',
     justifyContent: 'center',
@@ -30,7 +26,7 @@ const style = StyleSheet.create({
   divider: {
     height: 1,
     backgroundColor: 'lightgrey',
-    marginVertical: 8,
+    margin: 8,
   },
   flex: {
     flex: 1,
@@ -45,6 +41,47 @@ const style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  shadow: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalUnderlay: {
+    flex: 1,
+    flexDirection: 'column-reverse',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  },
+  modalBody: {
+    backgroundColor: 'white',
+    padding: 16,
+    paddingBottom: 0,
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+  },
+  modalTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  modalTitleText: {
+    flex: 1,
+    textAlign: 'center',
+    fontSize: 22,
+  },
+  modalCloseIcon: {
+    position: 'absolute',
+    right: 0,
+  },
+  modalContent: {
+    marginBottom: 16,
+  },
+  pb16: {paddingBottom: 16},
+  mv8: {marginVertical: 8},
 });
 
 export default style;

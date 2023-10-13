@@ -47,10 +47,15 @@ export default function useRnForm() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const textValue = useRef('');
   const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   function doLoading() {
     setLoading(true);
     setTimeout(() => setLoading(false), 2000);
+  }
+
+  function toggleModal() {
+    setShowModal(prev => !prev);
   }
 
   return {
@@ -59,5 +64,7 @@ export default function useRnForm() {
     textValue,
     loading,
     doLoading,
+    showModal,
+    toggleModal,
   };
 }
