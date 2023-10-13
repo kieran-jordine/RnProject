@@ -52,6 +52,8 @@ function ReduxStart({navigation}: {navigation: any}): JSX.Element {
           </View>
         </View>
         <View style={style.divider} />
+        <Text style={style.headlineText}>Entity Adapter</Text>
+        <View style={style.divider} />
         <Button onPress={() => navigation.popToTop()} title="Home" />
         <Button
           onPress={() => navigation.navigate('RtkQuery', {postId: 3})}
