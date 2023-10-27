@@ -82,6 +82,7 @@ const style = StyleSheet.create({
   },
   pb16: {paddingBottom: 16},
   mv8: {marginVertical: 8},
+  colorWhite: {color: 'white'},
 });
 
 export default style;

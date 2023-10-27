@@ -4,6 +4,8 @@ import {
   Alert,
   Button,
   FlatList,
+  Image,
+  ImageBackground,
   Modal,
   RefreshControl,
   SafeAreaView,
@@ -49,7 +51,7 @@ function RnForm({navigation}: NavProp): JSX.Element {
   return (
     <SafeAreaView>
       <StatusBar barStyle={'light-content'} backgroundColor={'red'} />
-      <View style={style.container}>
+      <ScrollView style={style.container}>
         <Text style={style.headlineText}>A form with elements</Text>
         <TextInput
           style={style.textInput}
@@ -130,6 +132,24 @@ function RnForm({navigation}: NavProp): JSX.Element {
         />
 
         <View style={style.divider} />
+        <ImageBackground
+          source={{
+            uri: 'https://www.themealdb.com/images/media/meals/ruwpww1511817242.jpg',
+          }}>
+          <Text style={[style.mv8, style.headlineText, style.colorWhite]}>
+            Text inside an image-background
+          </Text>
+        </ImageBackground>
+        <View style={style.divider} />
+        <Image
+          source={{
+            uri: 'https://www.themealdb.com/images/media/meals/ruwpww1511817242.jpg',
+            height: 150,
+            width: 150,
+          }}
+        />
+
+        <View style={style.divider} />
         <Button
           onPress={() => navigation.navigate('RnFormPickers')}
           title="Form Pickers"
@@ -139,7 +159,7 @@ function RnForm({navigation}: NavProp): JSX.Element {
           onPress={() => navigation.navigate('Settings')}
           title="Settings"
         />
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
